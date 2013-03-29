@@ -1,6 +1,7 @@
 package com.example.gpsdetector;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -32,5 +33,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		database.execSQL("drop table if exists hellodemo");
 		onCreate(database);
 	}
-
+	
+	public Cursor getAll() {
+		String allData = "select * from demo";
+		
+		return database.rawQuery(allData, null);
+	}
+	
 }
